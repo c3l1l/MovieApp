@@ -2,6 +2,7 @@
 using Movie.Core.Repositories;
 using Movie.Core.Services;
 using Movie.Core.UnitOfWorks;
+using Movie.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,13 +49,13 @@ namespace Movie.Service.Services
 
         public async Task<T> GetByIdAsync(int id)
         {
-            //var hasProduct = await _repository.GetByIdAsync(id);
-            //if (hasProduct == null)
-            //{
-            //    throw new NotFoundException($"{typeof(T).Name} ({id}) not found");
-            //}
-            //return hasProduct;
-            return await _repository.GetByIdAsync(id);
+            var hasProduct = await _repository.GetByIdAsync(id);
+            if (hasProduct == null)
+            {
+                throw new NotFoundException($"{typeof(T).Name} ({id}) not found");
+            }
+            return hasProduct;
+           // return await _repository.GetByIdAsync(id);
         }
 
         public async Task RemoveAsync(T entity)
