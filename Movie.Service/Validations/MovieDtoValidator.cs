@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
-using Movie.Core.DTOs;
+using MovieApp.Core.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Service.Validations
+namespace MovieApp.Service.Validations
 {
     public class MovieDtoValidator:AbstractValidator<MovieDto>
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Core.UnitOfWorks
+namespace MovieApp.Core.UnitOfWorks
 {
     public interface IUnitOfWork
     {

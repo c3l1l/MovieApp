@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Movie.Core.DTOs;
+using MovieApp.Core.DTOs;
 
 namespace Movie.API.Filters
 {

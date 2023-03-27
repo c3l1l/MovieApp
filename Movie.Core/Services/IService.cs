@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Core.Services
+namespace MovieApp.Core.Services
 {
     public interface IService<T> where T : class
     {

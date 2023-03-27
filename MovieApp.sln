@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Core", "Movie.Core\Movie.Core.csproj", "{61B92D3C-EDDB-473E-B147-F6ABAEF63D36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Core", "Movie.Core\MovieApp.Core.csproj", "{61B92D3C-EDDB-473E-B147-F6ABAEF63D36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Repository", "Movie.Repository\Movie.Repository.csproj", "{F098A5E8-1A3C-48AC-B57D-6C331D9F3D6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Repository", "Movie.Repository\MovieApp.Repository.csproj", "{F098A5E8-1A3C-48AC-B57D-6C331D9F3D6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Service", "Movie.Service\Movie.Service.csproj", "{12BBA374-B78E-447E-98DC-55CB024AABF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Service", "Movie.Service\MovieApp.Service.csproj", "{12BBA374-B78E-447E-98DC-55CB024AABF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Caching", "Movie.Caching\Movie.Caching.csproj", "{1A340410-ECF8-4D99-BD10-C7361497B050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Caching", "Movie.Caching\MovieApp.Caching.csproj", "{1A340410-ECF8-4D99-BD10-C7361497B050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.API", "Movie.API\Movie.API.csproj", "{2F5E830C-5C5F-42CC-B9CF-F53144B57B6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.API", "Movie.API\MovieApp.API.csproj", "{2F5E830C-5C5F-42CC-B9CF-F53144B57B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

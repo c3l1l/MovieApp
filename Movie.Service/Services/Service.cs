@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Movie.Core.Repositories;
-using Movie.Core.Services;
-using Movie.Core.UnitOfWorks;
-using Movie.Service.Exceptions;
+using MovieApp.Core.Repositories;
+using MovieApp.Core.Services;
+using MovieApp.Core.UnitOfWorks;
+using MovieApp.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Service.Services
+namespace MovieApp.Service.Services
 {
     public class Service<T> : IService<T> where T : class
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
-using Movie.Core.DTOs;
-using Movie.Service.Exceptions;
+using MovieApp.Core.DTOs;
+using MovieApp.Service.Exceptions;
 using System.Text.Json;
 
 namespace Movie.API.Middlewares

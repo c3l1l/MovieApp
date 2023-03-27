@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Movie.Core\Movie.Core.csproj" />
+    <ProjectReference Include="..\Movie.Core\MovieApp.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

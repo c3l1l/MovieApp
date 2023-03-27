@@ -1,12 +1,13 @@
-﻿using Movie.Core.UnitOfWorks;
-using Movie.Repository.DbContexts;
+﻿
+using MovieApp.Core.UnitOfWorks;
+using MovieApp.Repository.DbContexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Repository.UnitOfWork
+namespace MovieApp.Repository.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Service.Exceptions
+namespace MovieApp.Service.Exceptions
 {
     public class ClientSideException:Exception
     {

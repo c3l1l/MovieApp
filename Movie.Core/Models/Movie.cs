@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Core.Models
 {
-    public class BaseEntity
+    public class Movie : BaseEntity
     {
-        public int Id { get; set; }
-        
+        public string Name { get; set; }
+        public int GenreId { get; set; }
+        public int DirectorId { get; set; }
     }
 }

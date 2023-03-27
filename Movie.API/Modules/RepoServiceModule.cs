@@ -1,12 +1,12 @@
 ﻿using Autofac;
-using Movie.Core.Repositories;
-using Movie.Core.Services;
-using Movie.Core.UnitOfWorks;
-using Movie.Repository.DbContexts;
-using Movie.Repository.Repositories;
-using Movie.Repository.UnitOfWork;
-using Movie.Service.Mapping;
-using Movie.Service.Services;
+using MovieApp.Core.Repositories;
+using MovieApp.Core.Services;
+using MovieApp.Core.UnitOfWorks;
+using MovieApp.Repository.DbContexts;
+using MovieApp.Repository.Repositories;
+using MovieApp.Repository.UnitOfWork;
+using MovieApp.Service.Mapping;
+using MovieApp.Service.Services;
 using System.Reflection;
 using Module = Autofac.Module;
 

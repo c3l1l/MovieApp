@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Movie.Core.DTOs;
-using Movie.Core.Models;
-using Movie.Core.Services;
+using MovieApp.Core.DTOs;
+using MovieApp.Core.Models;
+using MovieApp.Core.Services;
 
 namespace Movie.API.Filters
 {

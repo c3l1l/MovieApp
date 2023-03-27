@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Movie.Core.Repositories;
-using Movie.Repository.DbContexts;
+using MovieApp.Core.Repositories;
+using MovieApp.Repository.DbContexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Repository.Repositories
+namespace MovieApp.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

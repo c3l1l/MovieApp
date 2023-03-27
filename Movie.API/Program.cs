@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Movie.API.Filters;
 using Movie.API.Middlewares;
 using Movie.API.Modules;
-using Movie.Repository.DbContexts;
-using Movie.Service.Mapping;
-using Movie.Service.Validations;
+using MovieApp.Repository.DbContexts;
+using MovieApp.Service.Mapping;
+using MovieApp.Service.Validations;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

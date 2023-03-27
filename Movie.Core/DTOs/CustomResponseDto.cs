@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Movie.Core.DTOs
+namespace MovieApp.Core.DTOs
 {
     public class CustomResponseDto<T>
     {
