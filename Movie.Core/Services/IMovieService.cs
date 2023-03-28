@@ -10,6 +10,6 @@ namespace MovieApp.Core.Services
 {
     public interface IMovieService:IService<Movie>
     {
-        //public Task<List<Movie>> GetAllMoviesWithGenre();
+        public Task<List<MovieJoinDto>> GetAllMoviesWithGenre();
     }
 }

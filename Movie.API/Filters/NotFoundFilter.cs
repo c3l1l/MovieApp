@@ -4,7 +4,7 @@ using MovieApp.Core.DTOs;
 using MovieApp.Core.Models;
 using MovieApp.Core.Services;
 
-namespace Movie.API.Filters
+namespace MovieApp.API.Filters
 {
     public class NotFoundFilter<T> : IAsyncActionFilter where T : BaseEntity
     {

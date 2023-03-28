@@ -22,10 +22,10 @@ namespace MovieApp.Service.Services
             _mapper = mapper;
         }
 
-       
-        //public async Task<List<Movie>> GetAllMoviesWithGenre()
-        //{
-        //    return await _movieRepository.GetAllMoviesWithGenre();
-        //}
+
+        public async Task<List<MovieJoinDto>> GetAllMoviesWithGenre()
+        {
+            return await _movieRepository.GetAllMoviesWithGenre();
+        }
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using MovieApp.Core.DTOs;
 
-namespace Movie.API.Filters
+namespace MovieApp.API.Filters
 {
     public class ValidateFilterAttribute:ActionFilterAttribute
     {

@@ -3,7 +3,7 @@ using MovieApp.Core.DTOs;
 using MovieApp.Service.Exceptions;
 using System.Text.Json;
 
-namespace Movie.API.Middlewares
+namespace MovieApp.API.Middlewares
 {
     public static class UseCustomExceptionHandler
     {

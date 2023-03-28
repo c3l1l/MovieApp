@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Movie.API.Filters;
+using MovieApp.API.Filters;
 using MovieApp.Core.DTOs;
 using MovieApp.Core.Models;
 using MovieApp.Core.Services;
@@ -29,14 +29,19 @@ namespace MovieApp.API.Controllers
 
             return CreateActionResult(CustomResponseDto<List<MovieDto>>.Success(200, moviesDto));
         }
-        //[HttpGet]
-        //public async Task<IActionResult> AllWithGenre()
-        //{
-        //    var movies = await _service.GetAllMoviesWithGenre();
-        //    var moviesDto = _mapper.Map<List<MovieDto>>(movies.ToList());
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> AllWithGenre()
+        {
+            var movies = await _service.GetAllMoviesWithGenre();
+            
+            Movie m=new Movie();
+            m.Genre.Movies=new List<Movie>();
+            Genre g = new Genre();
+            g.Movie.Movies=new List<Movie>();
+         //   var moviesDto = _mapper.Map<List<MovieDto>>(movies.ToList());
 
-        //    return CreateActionResult(CustomResponseDto<List<MovieDto>>.Success(200, moviesDto));
-        //}
+            return CreateActionResult(CustomResponseDto<List<MovieApp.Core.DTOs.MovieJoinDto>>.Success(200, movies));
+        }
 
         //[ServiceFilter(typeof(NotFoundFilter<MovieApp.Core.Models.Movie>))]   //Buradaki tipide program.cs icinde servis olarak eklenmelidir.builder.Services.AddScoped(typeof(NotFoundFilter<>)); 
 

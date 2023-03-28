@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Core.DTOs
 {
-    public class MovieDto:BaseDto
+    public class MovieJoinDto:BaseDto
     {
         public string Name { get; set; }
-        
+
         public int DirectorId { get; set; }
-        public List<Genre> Genres { get; set; }
+        public int Genre { get; set; }
 
     }
 }

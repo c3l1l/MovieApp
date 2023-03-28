@@ -10,7 +10,7 @@ using MovieApp.Service.Services;
 using System.Reflection;
 using Module = Autofac.Module;
 
-namespace Movie.API.Modules
+namespace MovieApp.API.Modules
 {
     //Autofac
     public class RepoServiceModule:Module
