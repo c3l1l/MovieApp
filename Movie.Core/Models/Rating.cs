@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MovieApp.Core.Models
+{
+    public class Rating:BaseEntity
+    {
+        public double ReviewStars { get; set; }
+        public int MovieId { get; set; }
+        public Movie? Movie { get; set; }
+
+
+    }
+}

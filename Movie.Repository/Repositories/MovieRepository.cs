@@ -1,4 +1,5 @@
-﻿using MovieApp.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieApp.Core.Models;
 using MovieApp.Core.Repositories;
 using MovieApp.Repository.DbContexts;
 using System;
@@ -11,9 +12,15 @@ namespace MovieApp.Repository.Repositories
 {
     public class MovieRepository:GenericRepository<Movie>, IMovieRepository
     {
+        
         public MovieRepository(AppDbContext context):base(context)
         {
 
         }
+        //public async Task<List<Movie>> GetAllMoviesWithGenre()
+        //{
+        //    return _context.Movies.Include(x=>x.Genres).ToList();
+        //}
+
     }
 }

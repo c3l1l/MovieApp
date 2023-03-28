@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MovieApp.Core.DTOs;
 using MovieApp.Core.Models;
 using MovieApp.Core.Repositories;
 using MovieApp.Core.Services;
@@ -20,5 +21,11 @@ namespace MovieApp.Service.Services
             _movieRepository = movieRepository;
             _mapper = mapper;
         }
+
+       
+        //public async Task<List<Movie>> GetAllMoviesWithGenre()
+        //{
+        //    return await _movieRepository.GetAllMoviesWithGenre();
+        //}
     }
 }
