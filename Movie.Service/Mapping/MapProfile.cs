@@ -17,6 +17,7 @@ namespace MovieApp.Service.Mapping
            CreateMap<Movie,MovieDto>().ReverseMap();
             CreateMap<Genre,GenreDto>().ReverseMap();
             CreateMap<Actor,ActorDto>().ReverseMap();
+            CreateMap<Director,DirectorDto>().ReverseMap();
         }
     }
 }
