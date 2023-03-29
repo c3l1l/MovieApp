@@ -15,6 +15,7 @@ namespace MovieApp.Service.Mapping
         {
            // CreateMap<Product, ProductDto>().ReverseMap();
            CreateMap<Movie,MovieDto>().ReverseMap();
+            CreateMap<Genre,GenreDto>().ReverseMap();
         }
     }
 }
