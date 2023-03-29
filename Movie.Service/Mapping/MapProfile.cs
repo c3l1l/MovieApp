@@ -18,6 +18,7 @@ namespace MovieApp.Service.Mapping
             CreateMap<Genre,GenreDto>().ReverseMap();
             CreateMap<Actor,ActorDto>().ReverseMap();
             CreateMap<Director,DirectorDto>().ReverseMap();
+            CreateMap<MovieDetail,MovieDetailDto>().ReverseMap();
         }
     }
 }
