@@ -11,6 +11,6 @@ namespace MovieApp.Core.Repositories
 {
     public interface IMovieRepository:IGenericRepository<Movie>
     {
-        public Task<List<MovieJoinDto>> GetAllMoviesWithGenre();
+       
     }
 }

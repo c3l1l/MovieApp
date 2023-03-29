@@ -29,21 +29,6 @@ namespace MovieApp.API.Controllers
 
             return CreateActionResult(CustomResponseDto<List<MovieDto>>.Success(200, moviesDto));
         }
-        [HttpGet("[Action]")]
-        public async Task<IActionResult> AllWithGenre()
-        {
-            var movies = await _service.GetAllMoviesWithGenre();
-            
-            Movie m=new Movie();
-            m.Genre.Movies=new List<Movie>();
-            Genre g = new Genre();
-            g.Movie.Movies=new List<Movie>();
-         //   var moviesDto = _mapper.Map<List<MovieDto>>(movies.ToList());
-
-            return CreateActionResult(CustomResponseDto<List<MovieApp.Core.DTOs.MovieJoinDto>>.Success(200, movies));
-        }
-
-        //[ServiceFilter(typeof(NotFoundFilter<MovieApp.Core.Models.Movie>))]   //Buradaki tipide program.cs icinde servis olarak eklenmelidir.builder.Services.AddScoped(typeof(NotFoundFilter<>)); 
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)

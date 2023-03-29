@@ -23,9 +23,5 @@ namespace MovieApp.Service.Services
         }
 
 
-        public async Task<List<MovieJoinDto>> GetAllMoviesWithGenre()
-        {
-            return await _movieRepository.GetAllMoviesWithGenre();
-        }
     }
 }

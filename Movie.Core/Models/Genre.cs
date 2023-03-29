@@ -8,8 +8,8 @@ namespace MovieApp.Core.Models
 {
     public class Genre:BaseEntity
     {
-        public string Name { get; set; }
-        // public ICollection<Movie>? Movies { get; set; }
-        public MovieGenre? Movie { get; set; }
+        public string Name { get; set; }       
+        public virtual ICollection<MovieGenre>? MovieGenres { get; set; }
+
     }
 }

@@ -43,12 +43,7 @@ namespace MovieApp.Repository.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int?>("MovieId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
 
                     b.ToTable("Actors");
 
@@ -144,17 +139,12 @@ namespace MovieApp.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("MovieId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
 
                     b.ToTable("Genres");
 
@@ -204,13 +194,7 @@ namespace MovieApp.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("ActorId")
-                        .HasColumnType("int");
-
                     b.Property<int>("DirectorId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GenreId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -220,11 +204,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActorId");
-
                     b.HasIndex("DirectorId");
-
-                    b.HasIndex("GenreId");
 
                     b.ToTable("Movies");
 
@@ -277,6 +257,10 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ActorId");
+
+                    b.HasIndex("MovieId");
+
                     b.ToTable("MovieActor");
                 });
 
@@ -325,6 +309,10 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GenreId");
+
+                    b.HasIndex("MovieId");
+
                     b.ToTable("MovieGenre");
                 });
 
@@ -349,45 +337,34 @@ namespace MovieApp.Repository.Migrations
                     b.ToTable("Ratings");
                 });
 
-            modelBuilder.Entity("MovieApp.Core.Models.Actor", b =>
-                {
-                    b.HasOne("MovieApp.Core.Models.MovieActor", "Movie")
-                        .WithMany("Actors")
-                        .HasForeignKey("MovieId");
-
-                    b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("MovieApp.Core.Models.Genre", b =>
-                {
-                    b.HasOne("MovieApp.Core.Models.MovieGenre", "Movie")
-                        .WithMany("Genres")
-                        .HasForeignKey("MovieId");
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("MovieApp.Core.Models.Movie", b =>
                 {
-                    b.HasOne("MovieApp.Core.Models.MovieActor", "Actor")
-                        .WithMany("Movies")
-                        .HasForeignKey("ActorId");
-
                     b.HasOne("MovieApp.Core.Models.Director", "Director")
                         .WithMany("Movies")
                         .HasForeignKey("DirectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MovieApp.Core.Models.MovieGenre", "Genre")
-                        .WithMany("Movies")
-                        .HasForeignKey("GenreId");
+                    b.Navigation("Director");
+                });
+
+            modelBuilder.Entity("MovieApp.Core.Models.MovieActor", b =>
+                {
+                    b.HasOne("MovieApp.Core.Models.Actor", "Actor")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MovieApp.Core.Models.Movie", "Movie")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Actor");
 
-                    b.Navigation("Director");
-
-                    b.Navigation("Genre");
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("MovieApp.Core.Models.MovieDetail", b =>
@@ -397,6 +374,25 @@ namespace MovieApp.Repository.Migrations
                         .HasForeignKey("MovieApp.Core.Models.MovieDetail", "MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("MovieApp.Core.Models.MovieGenre", b =>
+                {
+                    b.HasOne("MovieApp.Core.Models.Genre", "Genre")
+                        .WithMany("MovieGenres")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MovieApp.Core.Models.Movie", "Movie")
+                        .WithMany("MovieGenres")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genre");
 
                     b.Navigation("Movie");
                 });
@@ -412,28 +408,28 @@ namespace MovieApp.Repository.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("MovieApp.Core.Models.Actor", b =>
+                {
+                    b.Navigation("MovieActors");
+                });
+
             modelBuilder.Entity("MovieApp.Core.Models.Director", b =>
                 {
                     b.Navigation("Movies");
                 });
 
+            modelBuilder.Entity("MovieApp.Core.Models.Genre", b =>
+                {
+                    b.Navigation("MovieGenres");
+                });
+
             modelBuilder.Entity("MovieApp.Core.Models.Movie", b =>
                 {
+                    b.Navigation("MovieActors");
+
                     b.Navigation("MovieDetail");
-                });
 
-            modelBuilder.Entity("MovieApp.Core.Models.MovieActor", b =>
-                {
-                    b.Navigation("Actors");
-
-                    b.Navigation("Movies");
-                });
-
-            modelBuilder.Entity("MovieApp.Core.Models.MovieGenre", b =>
-                {
-                    b.Navigation("Genres");
-
-                    b.Navigation("Movies");
+                    b.Navigation("MovieGenres");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,12 +12,9 @@ namespace MovieApp.Core.Models
 
         public int DirectorId { get; set; }
         public Director? Director { get; set; }
-        //public ICollection<Genre>? Genres { get; set; }
-        public MovieGenre? Genre { get; set; }
-        // public ICollection<Actor>? Actors { get; set; }
-        public MovieActor? Actor { get; set; }
+        public virtual ICollection<MovieGenre>? MovieGenres { get; set; }
+        public virtual ICollection<MovieActor>? MovieActors { get; set; }
         public MovieDetail? MovieDetail { get; set; }
-
 
     }
 }

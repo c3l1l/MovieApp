@@ -13,6 +13,7 @@ namespace MovieApp.Service.Validations
         public MovieDtoValidator()
         {
             RuleFor(x => x.Name).NotNull().WithMessage("{PropertyName} is required.").NotEmpty().WithMessage("{PropertyName} is required.");
+            RuleFor(x=>x.DirectorId).NotNull().WithMessage("{PropertyName} is required.").NotEmpty().WithMessage("{PropertyName} is required.");
 
         }
     }

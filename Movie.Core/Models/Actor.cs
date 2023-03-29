@@ -11,7 +11,7 @@ namespace MovieApp.Core.Models
         public string FirstName { get; set; }
         public string Lastname { get; set; }
         public DateTime? BirthDate { get; set; }
-        // public ICollection<Movie>? Movies { get; set; }
-        public MovieActor? Movie { get; set; }
+        public virtual ICollection<MovieActor>? MovieActors { get; set; }
+
     }
 }

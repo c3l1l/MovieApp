@@ -12,7 +12,8 @@ namespace MovieApp.Core.DTOs
         public string Name { get; set; }
         
         public int DirectorId { get; set; }
-        public List<Genre> Genres { get; set; }
+      //  public virtual List<Genre>? Genres { get; set; }
+
 
     }
 }

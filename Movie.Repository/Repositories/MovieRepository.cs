@@ -18,21 +18,8 @@ namespace MovieApp.Repository.Repositories
         {
 
         }
-        public async Task<List<MovieJoinDto>> GetAllMoviesWithGenre()
-        {
-            // return _context.Movies.Include(x=>x.Genre).ToList();
-            var result = from m in _context.Movies
-                         join g in _context.MovieGenre
-                         on m.Id equals g.MovieId
-                         select new MovieJoinDto
-                         {
-                             Id = m.Id,
-                             Name = m.Name,
-                             DirectorId = m.DirectorId,
-                             Genre = g.GenreId
-                         };
-            return  result.ToList();
-        }
+      
+      
 
     }
 }

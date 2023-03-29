@@ -10,8 +10,7 @@ namespace MovieApp.Core.Models
     {
         public int GenreId { get; set; }
         public int MovieId { get; set; }
-
-        public ICollection<Movie> Movies { get; set; }
-        public ICollection<Genre> Genres { get; set; }
+        public virtual Movie Movie { get; set; }
+        public virtual Genre Genre { get; set; }
     }
 }

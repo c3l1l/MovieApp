@@ -10,7 +10,7 @@ namespace MovieApp.Core.Models
     {
         public int ActorId { get; set; }
         public int MovieId { get; set; }
-        public ICollection<Movie> Movies { get; set; }
-        public ICollection<Actor> Actors { get; set; }
+        public virtual Movie Movie { get; set; }
+        public virtual Actor Actor { get; set; }
     }
 }
