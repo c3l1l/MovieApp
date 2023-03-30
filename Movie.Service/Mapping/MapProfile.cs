@@ -13,8 +13,7 @@ namespace MovieApp.Service.Mapping
     {
         public MapProfile()
         {
-           // CreateMap<Product, ProductDto>().ReverseMap();
-           CreateMap<Movie,MovieDto>().ReverseMap();
+            CreateMap<Movie,MovieDto>().ReverseMap();
             CreateMap<Genre,GenreDto>().ReverseMap();
             CreateMap<Actor,ActorDto>().ReverseMap();
             CreateMap<Director,DirectorDto>().ReverseMap();

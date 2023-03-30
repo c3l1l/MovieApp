@@ -60,5 +60,13 @@ namespace MovieApp.API.Controllers
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
 
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> GetMoviesWithActorsAndDirector()
+        {
+            var movies = await _service.GetMoviesWithActorsAndDirector();       
+
+            return CreateActionResult(CustomResponseDto<List<MoviesWithActorsAndDirectorDto>>.Success(200, movies));
+        }
+
     }
 }

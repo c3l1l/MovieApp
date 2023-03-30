@@ -22,6 +22,26 @@ namespace MovieApp.Service.Services
             _mapper = mapper;
         }
 
+        public async Task<List<MoviesWithActorsAndDirectorDto>> GetMoviesWithActorsAndDirector()
+        {
+            var movies=await _movieRepository.GetMoviesWithActorsAndDirector();
+            var moviesDto=new List<MoviesWithActorsAndDirectorDto>();
 
+            foreach (var movie in movies)
+            {
+                var newMovieDto = new MoviesWithActorsAndDirectorDto();
+                newMovieDto.Id = movie.Id;
+                 newMovieDto.Name = movie.Name;
+                newMovieDto.DirectorName= $"{movie.Director.FirstName} {movie.Director.LastName}";
+                var newActorList = new List<string>();
+                foreach (var actor in movie.Actors)
+                {
+                    newActorList.Add($"{ actor.Actor.FirstName} {actor.Actor.Lastname}");
+                }
+                newMovieDto.Actors = newActorList;
+                moviesDto.Add(newMovieDto);
+            }
+            return moviesDto;
+        }
     }
 }

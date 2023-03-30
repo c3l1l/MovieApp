@@ -10,6 +10,6 @@ namespace MovieApp.Core.Services
 {
     public interface IMovieService:IService<Movie>
     {
-        
+        Task<List<MoviesWithActorsAndDirectorDto>> GetMoviesWithActorsAndDirector();
     }
 }

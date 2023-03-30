@@ -18,8 +18,12 @@ namespace MovieApp.Repository.Repositories
         {
 
         }
-      
-      
 
+        public async Task<List<Movie>> GetMoviesWithActorsAndDirector()
+        {
+            var movies=await _context.Movies.Include(x=>x.Actors).ThenInclude(y=>y.Actor).Include(x => x.Director).ToListAsync();
+            return movies;
+
+        }
     }
 }
