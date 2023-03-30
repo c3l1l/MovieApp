@@ -58,5 +58,12 @@ namespace MovieApp.API.Controllers
             await _service.RemoveAsync(genre);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
+        [HttpGet("[Action]/{id}")]
+        public async Task<IActionResult> GetGenresWithFilms(int id)
+        {
+            var genre = await _service.GetGenresWithFilms(id);
+
+            return CreateActionResult(CustomResponseDto<GenresWithMoviesDto>.Success(200, genre));
+        }
     }
 }

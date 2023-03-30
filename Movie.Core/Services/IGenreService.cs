@@ -1,4 +1,5 @@
-﻿using MovieApp.Core.Models;
+﻿using MovieApp.Core.DTOs;
+using MovieApp.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace MovieApp.Core.Services
 {
     public interface IGenreService:IService<Genre>
     {
+        Task<GenresWithMoviesDto> GetGenresWithFilms(int id);
     }
 }

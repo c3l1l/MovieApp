@@ -9,7 +9,7 @@ namespace MovieApp.Core.Models
     public class Genre:BaseEntity
     {
         public string Name { get; set; }       
-        public virtual ICollection<MovieGenre>? MovieGenres { get; set; }
+        public virtual ICollection<MovieGenre>? Movies { get; set; }
 
     }
 }
