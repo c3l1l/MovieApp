@@ -28,7 +28,7 @@ namespace MovieApp.Service.Services
             var genre = await _genreRepository.GetGenresWithFilms(id);
            
                 var newGenreDto = new GenresWithMoviesDto();
-                newGenreDto.Id = genre.Id;
+                newGenreDto.Id = id;
                 newGenreDto.Name = genre.Name;
                
                 var newMovieList = new List<Movie>();
