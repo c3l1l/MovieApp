@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MovieApp.API.Filters;
 using MovieApp.Core.DTOs;
 using MovieApp.Core.Models;
 using MovieApp.Core.Services;
@@ -35,6 +36,13 @@ namespace MovieApp.API.Controllers
             var movieDetailDto = _mapper.Map<MovieDetailDto>(movieDetail);
             return CreateActionResult(CustomResponseDto<MovieDetailDto>.Success(200, movieDetailDto));
         }
+        [HttpGet("[Action]/{id}")]
+       // [ServiceFilter(typeof(NotFoundFilter<Movie>))]
+        public async Task<IActionResult> GetByMovieId(int id)
+        {
+            var movieDetailDto = await _service.GetByMovieIdAsync(id);
+            return CreateActionResult(CustomResponseDto<MovieDetailDto>.Success(200, movieDetailDto));
+        }
 
         [HttpPost]
         public async Task<IActionResult> Save(MovieDetailDto movieDetailDto)
@@ -57,5 +65,6 @@ namespace MovieApp.API.Controllers
             await _service.RemoveAsync(movieDetail);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
+
     }
 }

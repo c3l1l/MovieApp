@@ -40,7 +40,7 @@ namespace MovieApp.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Save(MovieDto movieDto)
-        {
+         {
             var movie = _mapper.Map<MovieApp.Core.Models.Movie>(movieDto);
             await _service.AddAsync(movie);
             return CreateActionResult(CustomResponseDto<MovieDto>.Success(201, _mapper.Map<MovieDto>(movie)));

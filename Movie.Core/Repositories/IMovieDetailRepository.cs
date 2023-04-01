@@ -9,5 +9,6 @@ namespace MovieApp.Core.Repositories
 {
     public interface IMovieDetailRepository:IGenericRepository<MovieDetail>
     {
+        Task<MovieDetail> GetByMovieIdAsync(int movieId);
     }
 }

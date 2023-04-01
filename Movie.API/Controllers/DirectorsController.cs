@@ -9,12 +9,12 @@ namespace MovieApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DirectosController : CustomBaseController
+    public class DirectorsController : CustomBaseController
     {
         private readonly IDirectorService _service;
         private readonly IMapper _mapper;
 
-        public DirectosController(IDirectorService service, IMapper mapper)
+        public DirectorsController(IDirectorService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
