@@ -19,4 +19,12 @@
     <ProjectReference Include="..\Movie.Service\MovieApp.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\caa68d76-a338-40e0-a2e8-176e593c4c74no-image.jpg" />
+  </ItemGroup>
+
 </Project>

@@ -33,6 +33,7 @@ namespace MovieApp.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var movieDetail = await _service.GetByIdAsync(id);
+            movieDetail.PosterPath = CreateImageUrl(movieDetail.PosterPath);
             var movieDetailDto = _mapper.Map<MovieDetailDto>(movieDetail);
             return CreateActionResult(CustomResponseDto<MovieDetailDto>.Success(200, movieDetailDto));
         }
@@ -41,13 +42,16 @@ namespace MovieApp.API.Controllers
         public async Task<IActionResult> GetByMovieId(int id)
         {
             var movieDetailDto = await _service.GetByMovieIdAsync(id);
+            movieDetailDto.PosterPath = CreateImageUrl(movieDetailDto.PosterPath);
+
             return CreateActionResult(CustomResponseDto<MovieDetailDto>.Success(200, movieDetailDto));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(MovieDetailDto movieDetailDto)
+        public async Task<IActionResult> Save([FromForm]MovieDetailDto movieDetailDto)
         {
-            var movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
+            //var movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
+            var movieDetail=await _service.GetMovieFromMovieDto(movieDetailDto);
             await _service.AddAsync(movieDetail);
             return CreateActionResult(CustomResponseDto<MovieDetailDto>.Success(201, _mapper.Map<MovieDetailDto>(movieDetail)));
         }
@@ -64,6 +68,19 @@ namespace MovieApp.API.Controllers
             var movieDetail = await _service.GetByIdAsync(id);
             await _service.RemoveAsync(movieDetail);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
+        }
+
+        /// <summary>
+        /// This method creates image Url using to the ImagePath property in MovieDetail model.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        [NonAction]
+        public string CreateImageUrl(string filePath)
+        {
+            var baseUri = $"{Request.Scheme}://{Request.Host}/";
+            string imageurl = $"{baseUri}images/{filePath}";
+            return imageurl;
         }
 
     }
