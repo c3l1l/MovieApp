@@ -51,14 +51,18 @@ namespace MovieApp.API.Controllers
         public async Task<IActionResult> Save([FromForm]MovieDetailDto movieDetailDto)
         {
             //var movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
-            var movieDetail=await _service.GetMovieFromMovieDto(movieDetailDto);
+            var movieDetail=await _service.FileSaveToServer(movieDetailDto);
             await _service.AddAsync(movieDetail);
             return CreateActionResult(CustomResponseDto<MovieDetailDto>.Success(201, _mapper.Map<MovieDetailDto>(movieDetail)));
         }
         [HttpPut()]
-        public async Task<IActionResult> Update(MovieDetailDto movieDetailDto)
+        public async Task<IActionResult> Update([FromForm] MovieDetailDto movieDetailDto)
         {
-            var movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
+            //  var movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
+            string[] words = movieDetailDto.PosterPath.Split('/');
+            var oldImagePath = "wwwroot/images/" + words[4];
+            await _service.FileDeleteToServer(oldImagePath);
+            var movieDetail = await _service.FileSaveToServer(movieDetailDto);
             await _service.UpdateAsync(movieDetail);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }

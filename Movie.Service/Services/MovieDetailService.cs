@@ -35,31 +35,9 @@ namespace MovieApp.Service.Services
             {
                 throw new NotFoundException($"Movie with ({movieId}) id number {typeof(MovieDetail).Name} not found");
             }
-           
-        //var movieDetail=await _movieDetailRepository.GetByMovieIdAsync(movieId);
             var movieDetailDto = _mapper.Map<MovieDetailDto>(hasProduct);
             return movieDetailDto;
         }
-
-        //[NonAction]
-        //public MovieDetail GetMovieFromMovieDto(MovieDetailDto movieDetailDto)
-        //{
-
-        //    MovieDetail movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
-        //    string strRootPath = _env.ContentRootPath;
-        //    Guid guid = Guid.NewGuid();
-        //    string strNewImageName = guid.ToString() + movieDetailDto.Poster.FileName;
-        //    string strImagePath = Path.Combine(strRootPath + "Content/images/" + strNewImageName);
-
-        //    using (FileStream fs = new FileStream(strImagePath, FileMode.Create))
-        //    {
-        //        movieDetail.Poster.CopyToAsync(fs);
-        //        fs.Close();
-        //        movieDetail.PosterPath = strNewImageName;
-        //    }
-        //    return movieDetail;
-        //}
-
       
         /// <summary>
         /// This method gets MovieDetailDto model and maps to MovieDetail model.
@@ -68,12 +46,16 @@ namespace MovieApp.Service.Services
         /// </summary>
         /// <param name="movieDetailDto"></param>
         /// <returns></returns>
-        async Task<MovieDetail> IMovieDetailService.GetMovieFromMovieDto(MovieDetailDto movieDetailDto)
+        async Task<MovieDetail> IMovieDetailService.FileSaveToServer(MovieDetailDto movieDetailDto)
         {
             MovieDetail movieDetail = _mapper.Map<MovieDetail>(movieDetailDto);
             string strRootPath = _env.ContentRootPath;
             Guid guid = Guid.NewGuid();
-            string strNewImageName = guid.ToString() + movieDetailDto.Poster.FileName;
+            //  string strNewImageName = guid.ToString() + movieDetailDto.Poster.FileName;
+            string fileFormat=movieDetailDto.Poster.FileName.Substring(movieDetailDto.Poster.FileName.LastIndexOf('.'));
+
+            fileFormat = fileFormat.ToLower();
+            string strNewImageName = guid.ToString() + fileFormat;
             string strImagePath = Path.Combine(strRootPath + "wwwroot/images/" + strNewImageName);
 
             using (FileStream fs = new FileStream(strImagePath, FileMode.Create))
@@ -83,6 +65,22 @@ namespace MovieApp.Service.Services
                 movieDetail.PosterPath = strNewImageName;
             }
             return movieDetail;
+        }
+          
+
+        async Task IMovieDetailService.FileDeleteToServer(string path)
+        {
+            try
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+            }
+            catch (Exception)
+            {
+                throw new NotFoundException(path + " file not found to delete !");
+            }
         }
     }
 }

@@ -11,7 +11,8 @@ namespace MovieApp.Core.Services
     public interface IMovieDetailService:IService<MovieDetail>
     {
         Task<MovieDetailDto> GetByMovieIdAsync(int movieId);
-        Task<MovieDetail> GetMovieFromMovieDto(MovieDetailDto movieDetailDto);
+        Task<MovieDetail> FileSaveToServer(MovieDetailDto movieDetailDto);
 
+        Task FileDeleteToServer(string path);
     }
 }
