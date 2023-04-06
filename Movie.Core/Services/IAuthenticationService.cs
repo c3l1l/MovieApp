@@ -15,7 +15,7 @@ namespace MovieApp.Core.Services
 
         Task<CustomResponseDto<NoContentDto>> RevokeRefreshToken(string refreshToken);
 
-        Task<CustomResponseDto<ClientTokenDto>> CreateTokenByClient(ClientLoginDto clientLoginDto);
+        CustomResponseDto<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto);
         
     }
 }

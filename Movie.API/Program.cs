@@ -31,7 +31,7 @@ builder.Services.Configure<CustomTokenOption>(opt =>
 {
     builder.Configuration.GetSection("TokenOption");
 });
-builder.Services.Configure<Client>(opt =>
+builder.Services.Configure<List<Client>>(opt =>
 {
     builder.Configuration.GetSection("Clients");
 });
