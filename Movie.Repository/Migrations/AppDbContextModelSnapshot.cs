@@ -45,7 +45,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actors");
+                    b.ToTable("Actors", (string)null);
 
                     b.HasData(
                         new
@@ -108,7 +108,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors");
+                    b.ToTable("Directors", (string)null);
 
                     b.HasData(
                         new
@@ -146,7 +146,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genres", (string)null);
 
                     b.HasData(
                         new
@@ -206,7 +206,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasIndex("DirectorId");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
 
                     b.HasData(
                         new
@@ -261,7 +261,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("MovieActor");
+                    b.ToTable("MovieActor", (string)null);
                 });
 
             modelBuilder.Entity("MovieApp.Core.Models.MovieDetail", b =>
@@ -290,7 +290,7 @@ namespace MovieApp.Repository.Migrations
                     b.HasIndex("MovieId")
                         .IsUnique();
 
-                    b.ToTable("MoviesDetails");
+                    b.ToTable("MoviesDetails", (string)null);
                 });
 
             modelBuilder.Entity("MovieApp.Core.Models.MovieGenre", b =>
@@ -313,7 +313,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("MovieGenre");
+                    b.ToTable("MovieGenre", (string)null);
                 });
 
             modelBuilder.Entity("MovieApp.Core.Models.Rating", b =>
@@ -334,7 +334,7 @@ namespace MovieApp.Repository.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Ratings");
+                    b.ToTable("Ratings", (string)null);
                 });
 
             modelBuilder.Entity("MovieApp.Core.Models.Movie", b =>

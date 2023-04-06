@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.Internal.Mappers;
 using MovieApp.Core.DTOs;
 using MovieApp.Core.Models;
 using MovieApp.Core.Repositories;
@@ -26,6 +27,7 @@ namespace MovieApp.Service.Services
         {
             var movies=await _movieRepository.GetMoviesWithActorsAndDirector();
             var moviesDto=new List<MoviesWithActorsAndDirectorDto>();
+           
 
             foreach (var movie in movies)
             {

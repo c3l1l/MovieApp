@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieApp.API.Filters;
 using MovieApp.API.Middlewares;
 using MovieApp.API.Modules;
+using MovieApp.Core.Configurations;
 using MovieApp.Repository.DbContexts;
 using MovieApp.Service.Mapping;
 using MovieApp.Service.Validations;
@@ -24,6 +25,15 @@ builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilte
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;   //Burada default Model state'i baskiliyoruz ve Fluent Validationda kullandigimiz kendi customResponse yapimizi donuyoruz.
+});
+
+builder.Services.Configure<CustomTokenOption>(opt =>
+{
+    builder.Configuration.GetSection("TokenOption");
+});
+builder.Services.Configure<Client>(opt =>
+{
+    builder.Configuration.GetSection("Clients");
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
