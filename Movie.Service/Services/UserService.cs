@@ -17,16 +17,18 @@ namespace MovieApp.Service.Services
     {
         private readonly UserManager<UserApp> _userManager;
         private readonly IMapper _mapper;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserService(UserManager<UserApp> userManager, IMapper mapper)
+        public UserService(UserManager<UserApp> userManager, IMapper mapper, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _mapper = mapper;
+            _roleManager = roleManager;
         }
 
         public async Task<CustomResponseDto<UserAppDto>> CreateUserAsync(CreateUserDto createUserDto)
         {
-            var user=new UserApp { Email= createUserDto.Email, UserName=createUserDto.UserName };
+            var user=new UserApp { Email= createUserDto.Email, UserName=createUserDto.UserName, City=createUserDto.City };
 
             var result=await _userManager.CreateAsync(user,createUserDto.Password);
 
@@ -46,7 +48,7 @@ namespace MovieApp.Service.Services
 
         public async Task<CustomResponseDto<UserAppDto>> GetUserByNameAsync(string userName)
         {
-            var user=await _userManager.FindByIdAsync(userName);
+            var user=await _userManager.FindByNameAsync(userName);
             if (user==null)
             {
                 return CustomResponseDto<UserAppDto>.Fail(404, "User Name not found");

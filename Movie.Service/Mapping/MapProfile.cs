@@ -19,6 +19,7 @@ namespace MovieApp.Service.Mapping
             CreateMap<Director,DirectorDto>().ReverseMap();
             CreateMap<MovieDetail,MovieDetailDto>().ReverseMap();
             CreateMap<Rating,RatingDto>().ReverseMap();
+            CreateMap<UserAppDto,UserApp>().ReverseMap();
         }
     }
 }

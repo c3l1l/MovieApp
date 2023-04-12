@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Service.Services
 {
-    internal static class SignService
+    public static class SignService
     {
         public static SecurityKey GetSymmetricSecurityKey(string securityKey)
         {
