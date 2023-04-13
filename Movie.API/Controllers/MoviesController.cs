@@ -9,7 +9,6 @@ using MovieApp.Core.Services;
 
 namespace MovieApp.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class MoviesController : CustomBaseController
@@ -39,7 +38,7 @@ namespace MovieApp.API.Controllers
             var movieDto = _mapper.Map<MovieDto>(movie);
             return CreateActionResult(CustomResponseDto<MovieDto>.Success(200, movieDto));
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Save(MovieDto movieDto)
          {
@@ -47,6 +46,7 @@ namespace MovieApp.API.Controllers
             await _service.AddAsync(movie);
             return CreateActionResult(CustomResponseDto<MovieDto>.Success(201, _mapper.Map<MovieDto>(movie)));
         }
+        [Authorize]
         [HttpPut()]
         public async Task<IActionResult> Update(MovieDto movieDto)
         {
@@ -54,6 +54,7 @@ namespace MovieApp.API.Controllers
              await _service.UpdateAsync(movie);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
