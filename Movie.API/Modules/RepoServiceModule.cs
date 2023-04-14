@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MovieApp.Caching;
 using MovieApp.Core.Repositories;
 using MovieApp.Core.Services;
 using MovieApp.Core.UnitOfWorks;
@@ -25,11 +26,13 @@ namespace MovieApp.API.Modules
             var apiAssembly = Assembly.GetExecutingAssembly();
             var repoAssembly = Assembly.GetAssembly(typeof(AppDbContext)); //Herhangi bir dosya adi ile o dosyanin icinde bulundugu assembly alinir.
             var serviceAssembly = Assembly.GetAssembly(typeof(MapProfile));
+            var cachingAssembly = Assembly.GetAssembly(typeof(MovieServiceWithCaching));
 
 
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
+            builder.RegisterType<MovieServiceWithCaching>().As<IMovieService>();
         }
     }
 }

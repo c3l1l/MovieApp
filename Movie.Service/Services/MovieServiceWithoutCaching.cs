@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Service.Services
 {
-    public class MovieService : Service<Movie>, IMovieService
+    public class MovieServiceWithoutCaching : Service<Movie>, IMovieService
     {
         private readonly IMovieRepository _movieRepository;
         private readonly IMapper _mapper;
-        public MovieService(IGenericRepository<Movie> repository, IUnitOfWork unitOfWork, IMovieRepository movieRepository, IMapper mapper) : base(repository, unitOfWork)
+        public MovieServiceWithoutCaching(IGenericRepository<Movie> repository, IUnitOfWork unitOfWork, IMovieRepository movieRepository, IMapper mapper) : base(repository, unitOfWork)
         {
             _movieRepository = movieRepository;
             _mapper = mapper;

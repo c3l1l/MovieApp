@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieApp.API.Filters;
 using MovieApp.API.Middlewares;
 using MovieApp.API.Modules;
+using MovieApp.Caching;
 using MovieApp.Core.Configurations;
 using MovieApp.Core.Models;
 using MovieApp.Core.Services;
@@ -25,6 +26,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+//builder.Services.AddScoped<IMovieService, MovieServiceWithCaching>();
 
 
 //builder.Services.AddControllers();
@@ -42,6 +44,8 @@ builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clien
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
+
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddDbContext<AppDbContext>(x =>
