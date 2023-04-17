@@ -6,5 +6,5 @@ Fluent Validation
 Automapper
 Autofac
 Built-in memory cache
-Authentication with JWT Bearer
+Authentication with JWT Bearer  
 </pre>
